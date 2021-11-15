@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Pole rombu</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
+
+    <link type="text/css" rel="stylesheet" href="../style2.css">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="description" content="Strona Geometryczna">
+    <meta name="author" content="Wojciech Sikora">
+
+    <link rel="stylesheet" href="css/fontello.css" type="text/css" />
+</head>
+
+<body>
+    <header>
+
+        <nav class="naw">
+
+            <ul class="menu">
+                <li><a href="../index.html">Strona główna</a></li>
+                <li class="how"><a href="#">Trójkąt</a>
+                    <ul class="menu2">
+                        <li><a href="../html2/rectangle_pol.html">Pole</a></li>
+                        <li><a href="../html2/rectangle_obw.html">Obwód</a></li>
+                    </ul>
+                </li>
+                <li class="how"><a href="#">Kwadrat</a>
+                    <ul class="menu2">
+                        <li><a href="../html2/kw_pol.html">Pole</a></li>
+                        <li><a href="../html2/kw_obw.html">Obwód</a></li>
+                    </ul>
+                </li>
+                <li class="how"><a href="#">Prostokąt</a>
+                    <ul class="menu2">
+                        <li><a href="../html2/pr_pol.html">Pole</a></li>
+                        <li><a href="../html2/pr_obw.html">Obwód</a></li>
+                    </ul>
+                </li>
+                <li class="how"><a href="#">Trapez</a>
+                    <ul class="menu2">
+                        <li><a href="../html2/tr_pol.html">Pole</a></li>
+                        <li><a href="../html2/tr_obw.html">Obwód</a></li>
+                    </ul>
+                </li>
+                <li class="how"><a href="#">Romb</a>
+                    <ul class="menu2">
+                        <li><a href="../html2/rom_pol.html">Pole</a></li>
+                        <li><a href="../html2/rom_obw.html">Obwód</a></li>
+                    </ul>
+                </li>
+                <li class="how"><a href="#">Koło</a>
+                    <ul class="menu2">
+                        <li><a href="../html2/ko_pol.html">Pole</a></li>
+                        <li><a href="../html2/ko_obw.html">Obwód</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+        </nav>
+
+    </header>
+    <main>
+        <article>
+            <div class="card">
+                <h1>Oblicz <span style="color: #2CBFA4">pole</span></h1>
+                <center>
+                    <div class="container">
+                        <form id="my-form">
+                            <input type="text" id="liczbaA" placeholder="Wpisz długość boku a">
+                            <input type="text" id="liczbaB" placeholder="Wpisz wysokość">
+                            <input type="button" value="Wyślij" id="btn-1">
+                        </form>
+                    </div>
+                    <div class="container">
+                        <form id="my-form2">
+                            <input type="text" id="liczbaA2" placeholder="Wpisz długość przekątnej 1">
+                            <input type="text" id="liczbaB2" placeholder="Wpisz długość przekątnej 2">
+                            <input type="button" value="Wyślij" id="btn-2">
+                        </form>
+                    </div>
+                </center>
+            </div>
+            <br>
+            <div class="card">
+                <div id="paragraph-1"></div>
+            </div>
+        </article>
+    </main>
+    <footer>
+
+        <div class="copy">
+
+            All right reserved &copy 2020 by Wojciech Sikora
+
+        </div>
+
+    </footer>
+    <script>
+        const par1 = document.querySelector('#paragraph-1');
+        const myForm = document.getElementById('my-form');
+        const myForm2 = document.getElementById('my-form2');
+        const btn1 = document.getElementById('btn-1');
+        const btn2 = document.getElementById('btn-2');
+
+
+
+        function pol() {
+            let a = Number(myForm.liczbaA.value);
+            let h = Number(myForm.liczbaB.value);
+            let str = a * h;
+            if ((a || h) < 0) {
+                par1.innerHTML = `Bok nie może być ujemny`;
+            } else if (isNaN(a) || isNaN(h)) {
+                par1.innerHTML = `To nie jest liczba`;
+            } else {
+                par1.innerHTML = `Pole trójkąta wynosi: ${str}`;
+            }
+            myForm.reset();
+        }
+
+        function pol2() {
+            let a = Number(myForm2.liczbaA2.value);
+            let b = Number(myForm2.liczbaB2.value);
+            let str2 = (a * b) / 2;
+            if ((a || b) < 0) {
+                par1.innerHTML = `Bok nie może być ujemny`;
+            } else if (isNaN(a)) {
+                par1.innerHTML = `To nie jest liczba`;
+            } else {
+                par1.innerHTML = `Pole trójkąta wynosi: ${str2}`;
+            }
+            myForm2.reset();
+        }
+
+        btn1.addEventListener('click', pol);
+        btn2.addEventListener('click', pol2);
+    </script>
+</body>
+
+</html>
